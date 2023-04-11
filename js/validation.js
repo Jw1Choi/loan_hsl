@@ -83,7 +83,7 @@ $(document).ready(function(){
     $('#send_message').css({transition:"1s"});
     $('#send_message').css({background:"transparent"});
     $('#send_message').css({color:"#fff"});
-    $('#hidden_iframe11').attr("onload", "hoa();site1111();");
+    $('#hidden_iframe11').attr("onload", "hoa();");
   
 
           
@@ -96,8 +96,7 @@ $(document).ready(function(){
 
 
 function dll(){
-    var f = document.fm;
-    f.submit();
+
  
 }
  
@@ -108,7 +107,8 @@ function maxLengthCheck(object){
 }
  
  function hoa(){
-  alert("신청이 완료되었습니다.");
+    var f = document.fm;
+    f.submit();
  }
  
  function site1111(){
