@@ -91,18 +91,15 @@ $(document).ready(function(){
         
         // If there is no validation error, next to process the mail function
         if(error == false){
-           // Disable submit button just after the form processed 1st time successfully.
-          
            $('#form_e11').prop("action", "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd-UpBt9OoGHS_EkTSrEk7t4efAHxoWhtQUAgG--wdyGf6rHg/formResponse");
            $('#send_message').attr({'disabled' : 'true', 'value' : '전송 중입니다' });
            
             
-     $('#send_message').prop("disabled", false);
-    $('#send_message').css({transition:"1s"});
-    $('#send_message').css({background:"#222222"});
-    $('#send_message').css({color:"#fff"});
+    $('#send_message').prop("disabled", false);
+    $('#send_message').hide();
+    $('#send_message1').show(200);
     $('#hidden_iframe11').attr("onload", "hoa();");
-  
+   
 
           
         }
@@ -139,9 +136,105 @@ function maxLengthCheck(object){
 
 
  function form_check(){
+    const regex1 = /^[|가-힣a-zA-Z\s+]+$/;
+    const regex2 = /^[가-힣]+$/;
+    const regex = /^[|0-9|]+$/;
+    var type = $('#car_type').val();
     var name =$('#name').val();
     var car = $('#car').val();
     var ph =$('#phone').val();
+    var agree = $('#agree11').is(":checked");
+
+    if(type != null )
+    {
+        
+        if(regex1.test(car) && car.length > 1 )
+        {
+           
+            if(regex2.test(name) && name.length > 1 )
+            {
+            
+                if(ph.substr(0, 3) == "010" && ph.length ==11 && regex.test(ph) )
+                {
+              
+                    if (agree == true)
+                    {
+                        $('#send_message').css({transition:"1s"});
+                       $('#send_message').prop("disabled", false);
+                       $('#send_message').prop("value", "할인 견적 받기");
+                       $('#send_message').css({background:"#0e3b64"});
+                       $('#send_message').css({cursor:"pointer"});
+                    }
+                    else
+                    {
+                        $('#send_message').css({transition:"1s"});
+                        $('#send_message').prop("disabled", true);
+                        $('#send_message').prop("value", "개인정보 동의를 해주세요");
+                        $('#send_message').css({background:"#595959"});
+                        $('#send_message').css({cursor:"default"});     
+                    }
+                    
+                }
+                else if(ph.length>0)
+                {
+                    $('#send_message').css({transition:"1s"});
+                    $('#send_message').prop("disabled", true);
+                    $('#send_message').prop("value", "전화번호 입력을 확인하세요.");
+                    $('#send_message').css({background:"#595959"});
+                    $('#send_message').css({cursor:"default"});     
+                }
+                else
+                {
+                    $('#send_message').css({transition:"1s"});
+                    $('#send_message').prop("disabled", true);
+                    $('#send_message').prop("value", "전화번호를 입력하세요.");
+                    $('#send_message').css({background:"#595959"});
+                    $('#send_message').css({cursor:"default"});     
+                }
+            }
+            else if(name.length>0)
+            {
+                $('#send_message').css({transition:"1s"});
+                $('#send_message').prop("disabled", true);
+                $('#send_message').prop("value", "성함 입력을 확인하세요.");
+                $('#send_message').css({background:"#595959"});
+                $('#send_message').css({cursor:"default"});     
+            }
+            else
+            {
+                $('#send_message').css({transition:"1s"});
+                $('#send_message').prop("disabled", true);
+                $('#send_message').prop("value", "성함을 입력하세요.");
+                $('#send_message').css({background:"#595959"});
+                $('#send_message').css({cursor:"default"});     
+            }
+        }
+        else if(car.length>2)
+        {
+            $('#send_message').css({transition:"1s"});
+            $('#send_message').prop("disabled", true);
+            $('#send_message').prop("value", "차종 입력을 확인하세요.");
+            $('#send_message').css({background:"#595959"});
+            $('#send_message').css({cursor:"default"});     
+        }
+        else
+        {
+            $('#send_message').css({transition:"1s"});
+            $('#send_message').prop("disabled", true);
+            $('#send_message').prop("value", "차종을 입력하세요.");
+            $('#send_message').css({background:"#595959"});
+            $('#send_message').css({cursor:"default"});     
+        }
+    }
+    else
+    {
+        $('#send_message').css({transition:"1s"});
+        $('#send_message').prop("disabled", true);
+        $('#send_message').prop("value", "견적 유형을 선택하세요.");
+        $('#send_message').css({background:"#595959"});
+        $('#send_message').css({cursor:"default"});     
+    }
+
 
     $('[name="name"]').val(name);
     $('[name="tel1"]').val('010');
@@ -169,7 +262,10 @@ function maxLengthCheck(object){
     }
 
 
- $('#name,#phone,#car').bind("keyup click change",form_check);
+
+
+
+ $('#name,#phone,#car,#car_type,#agree11').bind("keyup click change",form_check);
 
  $('#car_type').bind("change",car_check);
 

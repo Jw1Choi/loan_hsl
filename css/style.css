@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;700&display=swap'); */
 @font-face {
     font-family: 'MICEGothic';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic.woff2') format('woff2');
@@ -530,7 +530,7 @@ button.active.focus, button.active:focus, button.focus, button:active.focus, but
     margin:0 auto;
     padding: 40px 0 0;
 }
-.form-top-title {font-size: 16px; font-weight: 600; background: url('../img/arrow.jpg')no-repeat left center; background-size: 16px; text-indent: 20px; margin-bottom: 10px;}
+.form-top-title {font-size: 16px; font-weight: 600;  background-size: 16px; text-indent: 20px; margin-bottom: 10px;}
 .form-box:after {clear:both;}
 .form-title {
 	display:block; position:relative; float:left;
@@ -569,11 +569,37 @@ button.active.focus, button.active:focus, button.focus, button:active.focus, but
     border-bottom: 1px solid #ccc;
     background: #f7f7f7;
 }
+
+.form-control {
+    display:inline;
+    width: 95%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+@media screen and (max-width:513px) {
+
+    .form-control {
+   
+    width: 90%;
+  
+}
+}
+
 .form-box-tb th .fa {margin-right: 4px; font-size: 16px; vertical-align: middle;}
 .form-box-tb td {padding: 4px 6px;border-bottom: 1px solid #ccc;}
 
 .form-box-tb input[type="text"], textarea, select {
-    padding: 6px 12px;
+    padding: 0px 12px;
     border-width: 1px;
     border-style: solid;
     border-color: #eaeaea;

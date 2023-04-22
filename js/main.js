@@ -115,7 +115,7 @@ Number.prototype.zf = function (len) {
 };
 
 var today = new Date();
-console.log(today.format('yyyy년 MM월 dd일 a/p hh:mm 기준'));
+// console.log(today.format('yyyy년 MM월 dd일 a/p hh:mm 기준'));
 today = today.format('yyyy년 MM월 dd일 a/p hh:mm 기준');
 
 var endDay = new Date();
