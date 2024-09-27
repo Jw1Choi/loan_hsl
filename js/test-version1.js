@@ -6,24 +6,12 @@ testbody.innerHTML = `
      
         <!-- <img src="./img/gov.png" style="width:150px"> -->
    <img src="./img/logo.png" style="width:250px">
-        <h1 class="wow fadeInUp">즉시 출고 가능!<br>오늘의 특가 프로모션</h1><br>
+        <h1 class="wow fadeInUp">즉시 출고 가능!<br>오늘의 숨은 매물 정보</h1><br>
         <a href="#sec05" class="scroll box">
             <span class="timer">
-                현재 특가 | <script language="javascript" type="text/javascript">
-                    today=new Date()
-                    document.write(today.getFullYear(),".",today.getMonth()+1,".",today.getDate()) 
+                현재 특가 | <span class="today_date2" style="bottom:0;"></span> 
                 </script> ( <span id="countdown1"></span>)
-                  <script>
-                    function showTime() {
-                      var date = new Date();
-                      var hour = date.getHours().toString().padStart(2, "0");;
-                      var minute = date.getMinutes().toString().padStart(2, "0");;
-                      var second = date.getSeconds().toString().padStart(2, "0");;
-                      var time = hour + "시 " + minute + "분 " + second + "초 기준 "
-                      document.getElementById("countdown1").innerText = time;
-                    }
-                    setInterval(showTime, 1000);
-                  </script>
+            
             </span>
         </a> <br><br>
     </div>
@@ -67,29 +55,7 @@ testbody.innerHTML = `
         <h1>오늘의 프로모션</h1><br>
         <span id="rent_btn" style="padding:10px 40px;border:1px solid #3684d2;margin-right:20px;border-radius:5px;background:#3684d2;color:white;cursor:pointer;" onclick="rent()">장기렌트</span><span id="lease_btn" style="padding:10px 40px;border:1px solid #3684d2;border-radius:5px;background:white;cursor:pointer;" onclick="lease()">신차리스</span><br><br><br>
 
-        <script>
-            function rent(){
-                $('#rent_btn, #lease_btn').css({transition:"1s"});
-                $('#rent_btn').css({background:"#3684d2"});
-                $('#rent_btn').css({color:"white"});
-                $('#lease_btn').css({background:"white"});
-                $('#lease_btn').css({color:"#3684d2"});
-                $('#lease, #rent').hide(500);
-                $('#rent').show(500);
-         
-            }
-
-            function lease(){
-                $('#rent_btn, #lease_btn').css({transition:"1s"});
-                $('#lease_btn').css({background:"#3684d2"});
-                $('#lease_btn').css({color:"white"});
-                $('#rent_btn').css({background:"white"});
-                $('#rent_btn').css({color:"#3684d2"});
-                $('#lease, #rent').hide(500);
-                $('#lease').show(500);
-
-            }
-        </script>
+    
 
 
         <div id="rent">

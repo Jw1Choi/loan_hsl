@@ -264,8 +264,8 @@ function maxLengthCheck(object){
 
 
 
-
+$(function(){
  $('#name,#phone,#car,#car_type,#agree11').bind("keyup click change",form_check);
 
  $('#car_type').bind("change",car_check);
-
+})
